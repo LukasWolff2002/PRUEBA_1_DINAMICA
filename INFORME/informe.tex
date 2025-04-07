@@ -384,6 +384,47 @@ Algunos ejemplos son:
 
 \subsection{Subamortiguado}
 
+Recordar que en este caso:
+
+\begin{equation}
+    \omega_d = \omega_n \sqrt{1 - \beta^2}
+\end{equation}
+
+Luego la ecuacion de movimiento se puede escribir como:
+
+\begin{equation}
+    u(t) = G_1 e^{-\beta \omega_n t + j \omega_d t} + G_2 e^{-\beta \omega_n t - j \omega_d t} \quad G_1, G_2 \in \mathbb{C}
+\end{equation}
+
+Por lo tanto, se pueden escribir las constantes $G_1$ y $G_2$ como:
+
+\begin{equation}
+    G_1 = C_1 + jC_2 \quad G_2 = C_3 + jC_4 \quad C_1, C_2, C_3, C_4 \in \mathbb{R}
+\end{equation}
+
+Ademas, se puede escribir $e^{j\alpha}$ como:
+\begin{equation}
+    e^{j\alpha} = \cos(\alpha) + j\sin(\alpha) \quad \text{y} \quad e^{-j\alpha} = \cos(\alpha) - j\sin(\alpha)
+\end{equation}
+
+Por lo tanto, se debe cumplir que:
+
+\begin{equation}
+    C_2 + C_4 = 0 \quad \text{y} \quad C_1 - C_3 = 0
+\end{equation}
+
+Sea:
+
+\begin{equation}
+    A = C4 - C2 \quad \text{y} \quad B = C1 + C3
+\end{equation}
+
+Luego la ecuacion de movimiento se puede escribir como:
+
+\begin{equation}
+    u(t) = e^{-\beta \omega_n t} (A \sin(\omega_d t) + B \cos(\omega_d t)) \quad \beta \in [0, 1[
+\end{equation}
+
 Algunos ejemplos son:
 
 \begin{figure}[H]
@@ -438,5 +479,23 @@ Luego es posible generar una interpolacion a partir de estas mediciones, por eje
     \caption{Interpolacion a partir de mediciones.}
     \label{fig:ejemplo1}
 \end{figure}
+
+Luego la recta se puede escribir como:
+
+\begin{equation}
+    y = mx + b \quad \text{Analogo a} \quad \ln(u_{max}) = \ln(\rho) - \beta \omega_n t
+\end{equation}
+
+Ademas, es posible obtener el periodo armortiguado, asi como la frecuencia armoritugada promediando los intervalos:
+
+\begin{equation}
+    T_d = \frac{T_1 + T_2 + T_3 \dots T_n}{N} \quad \text{y} \quad f_d = \frac{1}{T_d}
+\end{equation}
+
+Luego sea $b = -\beta \omega_n$, se pueden hacer las siguientes definiciones:
+
+\begin{equation}
+    \omega_n = \sqrt{(\frac{2 \pi}{T_d})^2 + b^2 } 
+\end{equation}
 
 \end{document}
