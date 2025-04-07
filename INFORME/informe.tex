@@ -400,5 +400,43 @@ Algunos ejemplos son:
     \label{fig:ejemplo1}
 \end{figure}
 
+\section{Interpolacion a partir de mediciones}
+
+Si se generan mediciones de estudio, se puede generar una interpolacion a partir de estas, por ejemplo:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{3.5cm} >{\centering\arraybackslash}p{2.5cm} >{\centering\arraybackslash}p{2.5cm}}
+        \toprule
+        \textbf{Amp (cm)} & \textbf{Tiempo (s)}  \\
+        \midrule
+        6.0  & 0.4\\
+        -4.66  & 1.0\\
+        3.62  & 1.6\\
+        -2.82  & 2.21\\
+        2.19  & 2.81\\
+        -1.7  & 3.41\\
+        1.32  & 4.01\\
+        -1.18  & 4.61\\
+        1.06  & 5.22\\
+        -0.92  & 5.82\\
+        0.79  & 6.42\\
+        -0.66  & 7.02\\
+        0.52  & 7.62\\
+        -0.36 & 8.23\\
+        \bottomrule
+    \end{tabular}
+    \caption{Medicion ejemplo.}
+    \label{tab:cargas_maximas}
+  \end{table}
+
+Luego es posible generar una interpolacion a partir de estas mediciones, por ejemplo:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{GRAFICOS/ajuste_recta.png}
+    \caption{Interpolacion a partir de mediciones.}
+    \label{fig:ejemplo1}
+\end{figure}
 
 \end{document}
