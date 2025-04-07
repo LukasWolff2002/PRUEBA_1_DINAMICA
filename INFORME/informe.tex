@@ -209,13 +209,13 @@ Donde la homogenea corresponde al caso que $p(t) = 0$:
     u_h(t) = A \cos(\omega_n t) + B \sin(\omega_n t)
 \end{equation}
 
-Donde para determinar las constantes A y B, se utilizan las condiciones iniciales:
+Donde para determinar las constantes A y B, se utilizan las condiciones iniciales, por ejemplo:
 
 \begin{equation}
     u(0) = u_0 \quad \text{y} \quad \ddot{u}(0) = \ddot{u_0}
 \end{equation}
 
-Por lo tanto, se obtiene:
+Por lo tanto, se obtiene (con condiciones iniciales $u_0 y \dot{u_0}$):
 
 \begin{equation}
     A = \frac{\dot{u_0}}{\omega_n} \quad \text{y} \quad B = u_0
@@ -224,6 +224,12 @@ Por lo tanto, se obtiene:
 Luego se pueden definir los siguientes terminos:
 \begin{equation}
     \rho = \sqrt{u_0^2 + (\frac{\dot{u_0}}{\omega_n})^2} \quad \text{y} \quad \phi = \tan^{-1}(\frac{\dot{u_0}}{u_0 \omega_n})
+\end{equation}
+
+En realidad:
+
+\begin{equation}
+    \rho = \sqrt{A^2 + B^2} \quad \text{y} \quad \phi = \tan^{-1}(\frac{B}{A})
 \end{equation}
 
 Donde $\rho$ es la amplitud y $\phi$ es la fase. Por lo tanto, la ecuacion de movimiento se puede escribir como:
@@ -247,9 +253,6 @@ Ademas, se puede calcular el $T_{max}$ como:
 \end{equation}
 
 Donde el $2\pi$ corresponde por cada ciclo.
-
-
-
 
 Algunos ejemplos son:
 
@@ -282,12 +285,47 @@ Luego existen 3 tipos de sistemas:
     \item \textbf{Subamortiguado:} $(\frac{c}{2m\omega_n})^2 < 1 \rightarrow S_{1,2} \in \mathbb{C}$
 \end{itemize}
 
+Se define la razon de amortiguamiento critico como:
+
+\begin{equation}
+    \beta = \zeta = \frac{c}{c_c} = \frac{c}{2m\omega_n}
+\end{equation}
+
+Por lo tanto, la razon de armortiguamiento para los distintos casos es:
+
+\begin{itemize}
+    \item \textbf{Sobreamortiguado:} $\beta > 1$
+    \item \textbf{Criticamente amortiguado:} $\beta = 1$
+    \item \textbf{Subamortiguado:} $\beta < 1$
+\end{itemize}
+
+Ademas, se define la frecuencia amortiguada como:
+
+\begin{equation}
+    \omega_d = \omega_n \sqrt{\beta^2 - 1} \quad \text{para} \quad \beta >= 1
+\end{equation}
+
+\begin{equation}
+    \omega_d = \omega_n \sqrt{1 - \beta^2} \quad \text{para} \quad \beta < 1
+\end{equation}
 \subsection{Sobreamortiguado}
 
 La ecuacion de movimiento se puede escribir como:
 
 \begin{equation}
-    u(t) = e^{-\omega_n t} [u_0 (1 + \omega_n t) + \dot{u_0} t]
+    u(t) = G_1 e^{-(\beta \omega_n t + \omega_d)t} + G_2 e^{-(\beta \omega_n t - \omega_d)t} \quad G_1, G_2 \in \mathbb{R}
+\end{equation}
+
+Lo cual puedo trabajar como:
+
+\begin{equation}
+    u(t) = e^{-\beta \omega_n t} (G_1 e^{\omega_d t} + G_2 e^{-\omega_d t}) 
+\end{equation}
+
+Luego para graficar hay que considerar las funciones hiperbólicas, donde:
+
+\begin{equation}
+    \sinh(\alpha) = \frac{e^{\alpha} - e^{-\alpha}}{2} \quad \text{y} \quad \cosh(\alpha) = \frac{e^{\alpha} + e^{-\alpha}}{2}
 \end{equation}
 
 Algunos ejemplos son:
@@ -307,6 +345,28 @@ Algunos ejemplos son:
 \end{figure}
 
 \subsection{Criticamente amortiguado}
+
+Las soluciones a la ecuacion de movimiento son:
+
+\begin{equation}
+   S_{1,2} = -\beta \omega_n = \omega_n
+\end{equation}
+
+Por lo tanto:
+
+\begin{equation}
+    u(t) = G_1e^{-\omega_n t} 
+\end{equation}
+\begin{equation}
+    u_2(t) = G_2e^{-\omega_n t}
+\end{equation}
+
+Luego:
+
+\begin{equation}
+    u(t) = G_1e^{-\omega_n t} + G_2te^{-\omega_n t} \quad G_1, G_2 \in \mathbb{R}
+\end{equation}
+
 Algunos ejemplos son:
 \begin{figure}[H]
     \centering
