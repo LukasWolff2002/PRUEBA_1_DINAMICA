@@ -206,7 +206,7 @@ Luego, la ecuacion general del sistema se escribe como:
 Donde la homogenea corresponde al caso que $p(t) = 0$:
 
 \begin{equation}
-    u_h(t) = A \cos(\omega_n t) + B \sin(\omega_n t)
+    u_h(t) = A \sin(\omega_n t) + B \cos(\omega_n t)
 \end{equation}
 
 Donde para determinar las constantes A y B, se utilizan las condiciones iniciales, por ejemplo:
@@ -243,7 +243,7 @@ Donde $\rho$ es la amplitud y $\phi$ es la fase. Por lo tanto, la ecuacion de mo
 \end{equation}
 
 \begin{equation}
-    \ddot{u}(t) = -\rho \omega_n^2 \cos(\omega_n t - \phi)
+    \ddot{u}(t) = -\rho \omega_n^2 \cos(\omega_n t - \phi - 2\phi_1)
 \end{equation}
 
 Ademas, se puede calcular el $T_{max}$ como:
@@ -252,23 +252,38 @@ Ademas, se puede calcular el $T_{max}$ como:
     T_{max} = \frac{\phi}{\omega_n} + \frac{2\pi}{\omega_n} 
 \end{equation}
 
+Donde la solucion homogenea puede reescribirse como:
+
+\begin{equation}
+    u_h(t) = \rho \cos(\omega_n t - \phi) 
+\end{equation}
+
+\begin{equation}
+    \dot{u}_h(t) = -\rho \omega_n \sin(\omega_n t - \phi)
+\end{equation}
+
+\begin{equation}
+    \ddot{u}_h(t) = -\rho \omega_n^2 \cos(\omega_n t - \phi)
+\end{equation}
+
 Donde el $2\pi$ corresponde por cada ciclo.
 
 Algunos ejemplos son:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{GRAFICOS/sis_no_amortiguado_u0_1.0_v0_0.0.png}
+    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_no_amortiguado_u0_1.0_v0_0.0.png}
     \caption{Desplazamiento inicial 1.0, velocidad inicial 0.0}
     \label{fig:ejemplo1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{GRAFICOS/sis_no_amortiguado_u0_1.0_v0_1.0.png}
+    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_no_amortiguado_u0_1.0_v0_1.0.png}
     \caption{Desplazamiento inicial 1.0, velocidad inicial 1.0}
     \label{fig:ejemplo1}
 \end{figure}
+
 
 \newpage
 \section{Vibraciones Libres Armortiguadas}
@@ -276,6 +291,24 @@ Algunos ejemplos son:
 Se define la ecuacion de movimiento como:
 \begin{equation}
     m \ddot{x} + c \dot{x} + kx = 0
+\end{equation}
+
+La solucion de la ecuacion del caso homogeneo se supone como:
+
+\begin{equation}
+    u(t) = e^{St}
+\end{equation}
+
+Derivando, se obtiene la velocidad y aceleracion como:
+
+\begin{equation}
+    \dot{u}(t) = Se^{St} \quad \text{y} \quad \ddot{u}(t) = S^2 e^{St}
+\end{equation}
+
+Luego, la solucion de la ecuacion para p(t) = 0 es:
+
+\begin{equation}
+    S_{1,2} =  \frac{-c}{2m} \pm \omega_n \sqrt{(\frac{c}{2m\omega_n})^2 - 1}
 \end{equation}
 
 Luego existen 3 tipos de sistemas:
@@ -319,7 +352,15 @@ La ecuacion de movimiento se puede escribir como:
 Lo cual puedo trabajar como:
 
 \begin{equation}
-    u(t) = e^{-\beta \omega_n t} (G_1 e^{\omega_d t} + G_2 e^{-\omega_d t}) 
+    u_h(t) = e^{-\beta \omega_n t} (G_1 e^{\omega_d t} + G_2 e^{-\omega_d t}) 
+\end{equation}
+
+\begin{equation}
+    \dot{u}_h(t) = -\beta \omega_n e^{-\beta \omega_n t} (G_1 e^{\omega_d t} + G_2 e^{-\omega_d t}) + e^{-\beta \omega_n t} (G_1 \omega_d e^{\omega_d t} - G_2 \omega_d e^{-\omega_d t})
+\end{equation}
+
+\begin{equation}
+    \ddot{u}_h(t) = \beta^2 \omega_n^2 e^{-\beta \omega_n t} (G_1 e^{\omega_d t} + G_2 e^{-\omega_d t}) - 2\beta \omega_n e^{-\beta \omega_n t} (G_1 \omega_d e^{\omega_d t} - G_2 \omega_d e^{-\omega_d t}) + e^{-\beta \omega_n t} (G_1 \omega_d^2 e^{\omega_d t} + G_2 \omega_d^2 e^{-\omega_d t})
 \end{equation}
 
 Luego para graficar hay que considerar las funciones hiperbólicas, donde:
@@ -332,14 +373,14 @@ Algunos ejemplos son:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{GRAFICOS/sis_sobreamortiguado_u0_1.0_v0_0.0_zeta_1.1.png}
+    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_sobreamortiguado_u0_1.0_v0_0.0_zeta_1.1.png}
     \caption{Desplazamiento inicial 1.0, velocidad inicial 0.0}
     \label{fig:ejemplo1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{GRAFICOS/sis_sobreamortiguado_u0_1.0_v0_1.0_zeta_1.1.png}
+    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_sobreamortiguado_u0_1.0_v0_1.0_zeta_1.1.png}
     \caption{Desplazamiento inicial 1.0, velocidad inicial 1.0}
     \label{fig:ejemplo1}
 \end{figure}
@@ -364,20 +405,28 @@ Por lo tanto:
 Luego:
 
 \begin{equation}
-    u(t) = G_1e^{-\omega_n t} + G_2te^{-\omega_n t} \quad G_1, G_2 \in \mathbb{R}
+    u_h(t) = G_1e^{-\omega_n t} + G_2te^{-\omega_n t} \quad G_1, G_2 \in \mathbb{R}
+\end{equation}
+
+\begin{equation}
+    \dot{u}_h(t) = -\omega_n G_1e^{-\omega_n t} + G_2e^{-\omega_n t} - G_2\omega_n te^{-\omega_n t}
+\end{equation}
+
+\begin{equation}
+    \ddot{u}_h(t) = \omega_n^2 G_1e^{-\omega_n t} - 2\omega_n G_2e^{-\omega_n t} + G_2\omega_n^2 te^{-\omega_n t}
 \end{equation}
 
 Algunos ejemplos son:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{GRAFICOS/sis_criticamente_amortiguado_u0_1.0_v0_0.0.png}
+    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_criticamente_amortiguado_u0_1.0_v0_0.0.png}
     \caption{Desplazamiento inicial 1.0, velocidad inicial 0.0}
     \label{fig:ejemplo1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{GRAFICOS/sis_criticamente_amortiguado_u0_1.0_v0_1.0.png}
+    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_criticamente_amortiguado_u0_1.0_v0_1.0.png}
     \caption{Desplazamiento inicial 1.0, velocidad inicial 1.0}
     \label{fig:ejemplo1}
 \end{figure}
@@ -422,21 +471,45 @@ Sea:
 Luego la ecuacion de movimiento se puede escribir como:
 
 \begin{equation}
-    u(t) = e^{-\beta \omega_n t} (A \sin(\omega_d t) + B \cos(\omega_d t)) \quad \beta \in [0, 1[
+    u_h(t) = e^{-\beta \omega_n t} (A \sin(\omega_d t) + B \cos(\omega_d t)) \quad \beta \in [0, 1[
+\end{equation}
+
+\begin{equation}
+    \dot{u}_h(t) = -\beta \omega_n e^{-\beta \omega_n t} (A \sin(\omega_d t) + B \cos(\omega_d t)) + e^{-\beta \omega_n t} (A \omega_d \cos(\omega_d t) - B \omega_d \sin(\omega_d t))
+\end{equation}
+
+\begin{align}
+    \ddot{u}_h(t) &= \beta^2 \omega_n^2 e^{-\beta \omega_n t} (A \sin(\omega_d t) + B \cos(\omega_d t)) \notag \\
+    &\quad - 2\beta \omega_n e^{-\beta \omega_n t} (A \omega_d \cos(\omega_d t) - B \omega_d \sin(\omega_d t)) \notag \\
+    &\quad + e^{-\beta \omega_n t} (A \omega_d^2 \sin(\omega_d t) + B \omega_d^2 \cos(\omega_d t))
+\end{align}
+    
+Lo cual se puede simplificar como:
+
+\begin{equation}
+    u_h(t) = \rho e^{-\beta \omega_n t} \cos(\omega_d t - \phi) \quad \text{donde} \quad \rho = \sqrt{A^2 + B^2} \quad \text{y} \quad \phi = \tan^{-1}(\frac{A}{B})
+\end{equation}
+
+\begin{equation}
+    \dot{u}_h(t) = -\rho \beta \omega_n e^{-\beta \omega_n t} \cos(\omega_d t - \phi -\phi_1) \quad \text{donde} \quad \phi_1 = \tan^(-1)\frac{\sqrt{1-\beta^2}}{\beta}
+\end{equation}
+
+\begin{equation}
+    \ddot{u}_h(t) = -\rho \omega_n^2 e^{-\beta \omega_n t} \cos(\omega_d t - \phi - 2\phi_1)
 \end{equation}
 
 Algunos ejemplos son:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{GRAFICOS/sis_subamortiguado_u0_1.0_v0_0.0_zeta_0.1.png}
+    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_subamortiguado_u0_1.0_v0_0.0_zeta_0.1.png}
     \caption{Desplazamiento inicial 1.0, velocidad inicial 0.0}
     \label{fig:ejemplo1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{GRAFICOS/sis_subamortiguado_u0_1.0_v0_1.0_zeta_0.1.png}
+    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_subamortiguado_u0_1.0_v0_1.0_zeta_0.1.png}
     \caption{Desplazamiento inicial 1.0, velocidad inicial 1.0}
     \label{fig:ejemplo1}
 \end{figure}
@@ -497,5 +570,96 @@ Luego sea $b = -\beta \omega_n$, se pueden hacer las siguientes definiciones:
 \begin{equation}
     \omega_n = \sqrt{(\frac{2 \pi}{T_d})^2 + b^2 } 
 \end{equation}
+
+\section{Cargas Armonicas}
+
+Manteniendo el sistema de un DOF sin armortiguamiento, se puede definir la ecuacion de movimiento como:
+
+\begin{equation}
+    m \ddot{x} + c \dot{x} + kx = p_0 \sin(\frac{2\pi}{T_d}t)
+\end{equation}
+
+Por lo tanto, la ecuacion homogenes se mantiene:
+
+\begin{equation}
+    u_h(t) = A \sin(\omega_n t) + B \cos(\omega_n t)
+\end{equation}
+
+Luego, para la solucion particular, se puede escribir como:
+
+\begin{equation}
+    u_p(t) = u_p \sin(\bar{\omega} t )
+\end{equation}
+
+\begin{equation}
+    \dot{u}_p(t) = \bar{\omega} u_p \cos(\bar{\omega} t )
+\end{equation}
+
+\begin{equation}
+    \ddot{u}_p(t) = -\bar{\omega}^2 u_p \sin(\bar{\omega} t )
+\end{equation}
+
+Donde $\bar{\omega}$ corresponde a la frecuencia de la carga armonica. Se puede reescribir la ecuacion de movimiento como:
+
+\begin{equation}
+    (-m \bar{\omega}^2 + k)u_p \sin(\bar{\omega} t ) = p_0 \sin(\bar{\omega} t )
+\end{equation}
+
+Por lo tanto, $u_p$ equivale a:
+
+\begin{equation}
+    u_p = \frac{p_0}{k} \cdot \frac{1}{1-(\frac{\bar{\omega}}{\omega_n})^2}
+\end{equation}
+
+Luego:
+
+\begin{equation}
+    u_p(t) = \frac{p_0}{k} \cdot \frac{1}{1-(\frac{\bar{\omega}}{\omega_n})^2} \sin{\bar{\omega} t }
+\end{equation}
+
+De esta forma, se puede definir $u(t)$ como:
+
+\begin{equation}
+    u(t) = \frac{p_0}{k} \cdot \frac{1}{1-(\frac{\bar{\omega}}{\omega_n})^2} \sin{\bar{\omega} t } + A \sin(\omega_n t) + B \cos(\omega_n t)
+\end{equation}
+
+Recordando que $\omega_n^2 = \frac{k}{m}$, podemos reescribir $u(t)$ como:
+
+\begin{equation}
+    u(t) = \frac{p_0}{k} \cdot \text{FAD}(\frac{\bar\omega}{\omega_n})
+\end{equation}
+
+Donde FAD corresponde al Factor de Amplificacion Dinamico, el cual se define como:
+
+\begin{equation}
+    \text{FAD}(\frac{\bar\omega}{\omega_n}) = \frac{1}{1-(\frac{\bar{\omega}}{\omega_n})^2}
+\end{equation}
+
+Es posible generar una relacion entre la frecuencia de exitacion y la frecuencia natural del sistema:
+
+\begin{equation}
+    \lambda = \frac{\bar{\omega}}{\omega_n} = \frac{\bar{f}}{f_n} = \frac{\bar{T}}{T_n}
+\end{equation}
+
+De esta forma, $\frac{p_0}{k}$ corresponde a la deformacion estatica, por lo tanto, la respuesta particualr es:
+
+\begin{equation}
+    u_p(t) = u_{est} \text{FAD}(\lambda) \sin(\bar{\omega} t)
+\end{equation}
+
+Donde FAD de $\lambda$ corresponde a:
+
+\begin{equation}
+    \text{FAD}(\lambda) = \frac{1}{1-\lambda^2}
+\end{equation}
+
+Lo cual se visualiza como:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{GRAFICOS/FAD.png}
+    \caption{FAD segun $\lambda$}
+    \label{fig:ejemplo1}
+\end{figure}
 
 \end{document}
