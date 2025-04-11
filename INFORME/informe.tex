@@ -175,9 +175,27 @@ Por lo tanto, la ecuacion de movimiento se puede escribir como:
 
 \section{Inercias}
 
-La inercia de un cuerpo largo respecto a un eje de rotacion es:
+La inercia de un cuerpo largo respecto a su centro de masa:
 \begin{equation}
-    I = \frac{mL^2}{12}
+    I = \frac{mL^3}{12}
+\end{equation}
+
+Luego para hacer steiner:
+
+\begin{equation}
+    I_{\theta} = I_{cm} + mL \cdot (dx^2 + dy^2)
+\end{equation}
+
+Para un cuerpo largo que gira respecto a un extremo
+
+\begin{equation}
+    I = \frac{mL^3}{3}
+\end{equation}
+
+Para una masa puntual respecto a un punto:
+
+\begin{equation}
+    I = m_o \dcot (dx^2 + dy^2)
 \end{equation}
 
 
