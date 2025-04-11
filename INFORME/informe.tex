@@ -553,6 +553,8 @@ Luego es posible generar una interpolacion a partir de estas mediciones, por eje
     \label{fig:ejemplo1}
 \end{figure}
 
+\textbf{OJO, la implitud debe ir en logaritmo natural}
+
 Luego la recta se puede escribir como:
 
 \begin{equation}
@@ -661,5 +663,25 @@ Lo cual se visualiza como:
     \caption{FAD segun $\lambda$}
     \label{fig:ejemplo1}
 \end{figure}
+
+\section{Armortiguadores y resortes en linea}
+
+Para calcular el valor $c_\theta$ o $k_\theta$, se deben hacer dos equilibrios de momento, uno para el desplazamiento y otro para la rotacion:
+
+Se tiene el siguiente caso ejemplo:
+
+Rotacion (no depende del centro de gravedad, sino del centroide)
+
+\begin{equation}
+    M_{rot} = \bar{\alpha}\cdot \dot{\theta}\cdot \frac{L}{2}\cdot \frac{L}{2}\cdot \frac{1}{2}\cdot \frac{2}{3}\cdot \frac{L}{2} \cdot 2 \rightarrow \alpha_{\theta 1} = \frac{\bar{c} \dot{\theta} L^3}{12}
+\end{equation}
+
+Lineal (depende del centro de gravedad y centroide)
+
+\begin{equation}
+    M_{lin} = \dot{\alpha} \cdot L \cdot cg \cdot \dot{\theta} \cdot cg \rightarrow \alpha_{\theta 2} = \bar{\alpha} \cdot L \cdot cg^2
+\end{equation}
+
+
 
 \end{document}
