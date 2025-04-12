@@ -195,12 +195,35 @@ Para un cuerpo largo que gira respecto a un extremo
 Para una masa puntual respecto a un punto:
 
 \begin{equation}
-    I = m_o \dcot (dx^2 + dy^2)
+    I = m_o \cdot (dx^2 + dy^2)
 \end{equation}
 
+\section{Condensacion estatica de Guyan}
 
+La condensacion estatica de Guyan es un metodo para reducir el numero de grados de libertad de un sistema, basado en la siguiente formula:
 
-\newpage
+\begin{equation}
+    \begin{bmatrix}
+        K_{aa} & K_{ap} \\
+        K_{pa} & K_{pp}
+    \end{bmatrix}
+    \begin{bmatrix}
+        u_1 \\
+        u_2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        f_1 \\
+        0
+    \end{bmatrix}
+\end{equation}
+
+Luego, se puede expresar el grado de libertad que experimenta la fuerza como:
+
+\begin{equation}
+    K_{eq} = K_{aa} - K_{ap} K_{pp}^{-1} K_{pa}
+\end{equation}
+
 \section{Sistema no armortiguado de un DOF}
 
 La ecuacion base de este sistema es:
@@ -225,6 +248,14 @@ Donde la homogenea corresponde al caso que $p(t) = 0$:
 
 \begin{equation}
     u_h(t) = A \sin(\omega_n t) + B \cos(\omega_n t)
+\end{equation}
+
+\begin{equation}
+    \dot{u}_h(t) = A \omega_n \cos(\omega_n t) - B \omega_n \sin(\omega_n t)
+\end{equation}
+
+\begin{equation}
+    \ddot{u}_h(t) = -A \omega_n^2 \sin(\omega_n t) - B \omega_n^2 \cos(\omega_n t)
 \end{equation}
 
 Donde para determinar las constantes A y B, se utilizan las condiciones iniciales, por ejemplo:
@@ -252,24 +283,6 @@ En realidad:
 
 Donde $\rho$ es la amplitud y $\phi$ es la fase. Por lo tanto, la ecuacion de movimiento se puede escribir como:
 
-\begin{equation}
-    u(t) = \rho \cos(\omega_n t - \phi)
-\end{equation}
-
-\begin{equation}
-    \dot{u}(t) = -\rho \omega_n \sin(\omega_n t - \phi)
-\end{equation}
-
-\begin{equation}
-    \ddot{u}(t) = -\rho \omega_n^2 \cos(\omega_n t - \phi - 2\phi_1)
-\end{equation}
-
-Ademas, se puede calcular el $T_{max}$ como:
-
-\begin{equation}
-    T_{max} = \frac{\phi}{\omega_n} + \frac{2\pi}{\omega_n} 
-\end{equation}
-
 Donde la solucion homogenea puede reescribirse como:
 
 \begin{equation}
@@ -282,6 +295,20 @@ Donde la solucion homogenea puede reescribirse como:
 
 \begin{equation}
     \ddot{u}_h(t) = -\rho \omega_n^2 \cos(\omega_n t - \phi)
+\end{equation}
+
+Además, se puede calcular el tiempo en que ocurre el máximo de cada variable como:
+
+\begin{equation}
+    T_{\text{max},u} = \frac{\phi}{\omega_n} + \frac{2\pi}{\omega_n}
+\end{equation}
+
+\begin{equation}
+    T_{\text{max},\dot{u}} = \frac{\phi}{\omega_n} + \frac{\pi}{\omega_n} + \frac{2\pi}{\omega_n}
+\end{equation}
+
+\begin{equation}
+    T_{\text{max},\ddot{u}} = \frac{\phi}{\omega_n} + \frac{2\pi}{\omega_n}
 \end{equation}
 
 Donde el $2\pi$ corresponde por cada ciclo.
@@ -303,7 +330,6 @@ Algunos ejemplos son:
 \end{figure}
 
 
-\newpage
 \section{Vibraciones Libres Armortiguadas}
 
 Se define la ecuacion de movimiento como:
