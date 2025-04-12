@@ -329,6 +329,21 @@ Algunos ejemplos son:
     \label{fig:ejemplo1}
 \end{figure}
 
+\section{Vibraciones Libres No Armortiguadas Verticales}
+
+En esta caso hay un desplazamiento inicial estatico mas un desplazamiento por vibracion.
+
+Sea $x_est$ el desplazamiento estatico, definido como:
+
+\begin{equation}
+    x_{est} = \frac{mg}{k}
+\end{equation}
+
+Se puede definir $u(t)$ como:
+
+\begin{equation}
+    u(t) = x_{est} + u_h(t) = x_{est} + A \sin(\omega_n t) + B \cos(\omega_n t)
+\end{equation}
 
 \section{Vibraciones Libres Armortiguadas}
 
@@ -597,13 +612,28 @@ Luego es posible generar una interpolacion a partir de estas mediciones, por eje
     \label{fig:ejemplo1}
 \end{figure}
 
-\textbf{OJO, la implitud debe ir en logaritmo natural}
+\textbf{OJO, la implitud debe ir en ln (abs ())}
 
 Luego la recta se puede escribir como:
 
 \begin{equation}
     y = mx + b \quad \text{Analogo a} \quad \ln(u_{max}) = \ln(\rho) - \beta \omega_n t
 \end{equation}
+
+Por lo tanto, se tiene las ecuaciones para los siguientes casos:
+
+\begin{equation}
+    \ln(u_{max}) = \ln(\rho) - \beta \omega_n t
+\end{equation}
+
+\begin{equation}
+    \ln(\ddot{u}_{max}) = \ln(-\rho \omega_n) - \beta \omega_n t
+\end{equation}
+
+\begin{equation}
+    \ln(\ddot{u}_{max}) = \ln(-\rho \omega^2_n) - \beta \omega_n t
+\end{equation}
+
 
 Ademas, es posible obtener el periodo armortiguado, asi como la frecuencia armoritugada promediando los intervalos:
 
