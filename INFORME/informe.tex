@@ -258,18 +258,6 @@ Donde la homogenea corresponde al caso que $p(t) = 0$:
     \ddot{u}_h(t) = -A \omega_n^2 \sin(\omega_n t) - B \omega_n^2 \cos(\omega_n t)
 \end{equation}
 
-Donde para determinar las constantes A y B, se utilizan las condiciones iniciales, por ejemplo:
-
-\begin{equation}
-    u(0) = u_0 \quad \text{y} \quad \ddot{u}(0) = \ddot{u_0}
-\end{equation}
-
-Por lo tanto, se obtiene (con condiciones iniciales $u_0 y \dot{u_0}$):
-
-\begin{equation}
-    A = \frac{\dot{u_0}}{\omega_n} \quad \text{y} \quad B = u_0
-\end{equation}
-
 Luego se pueden definir los siguientes terminos:
 \begin{equation}
     \rho = \sqrt{u_0^2 + (\frac{\dot{u_0}}{\omega_n})^2} \quad \text{y} \quad \phi = \tan^{-1}(\frac{\dot{u_0}}{u_0 \omega_n})
@@ -312,22 +300,6 @@ Además, se puede calcular el tiempo en que ocurre el máximo de cada variable c
 \end{equation}
 
 Donde el $2\pi$ corresponde por cada ciclo.
-
-Algunos ejemplos son:
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_no_amortiguado_u0_1.0_v0_0.0.png}
-    \caption{Desplazamiento inicial 1.0, velocidad inicial 0.0}
-    \label{fig:ejemplo1}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_no_amortiguado_u0_1.0_v0_1.0.png}
-    \caption{Desplazamiento inicial 1.0, velocidad inicial 1.0}
-    \label{fig:ejemplo1}
-\end{figure}
 
 \section{Vibraciones Libres No Armortiguadas Verticales}
 
@@ -428,21 +400,6 @@ Luego para graficar hay que considerar las funciones hiperbólicas, donde:
     \sinh(\alpha) = \frac{e^{\alpha} - e^{-\alpha}}{2} \quad \text{y} \quad \cosh(\alpha) = \frac{e^{\alpha} + e^{-\alpha}}{2}
 \end{equation}
 
-Algunos ejemplos son:
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_sobreamortiguado_u0_1.0_v0_0.0_zeta_1.1.png}
-    \caption{Desplazamiento inicial 1.0, velocidad inicial 0.0}
-    \label{fig:ejemplo1}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_sobreamortiguado_u0_1.0_v0_1.0_zeta_1.1.png}
-    \caption{Desplazamiento inicial 1.0, velocidad inicial 1.0}
-    \label{fig:ejemplo1}
-\end{figure}
 
 \subsection{Criticamente amortiguado}
 
@@ -474,21 +431,6 @@ Luego:
 \begin{equation}
     \ddot{u}_h(t) = \omega_n^2 G_1e^{-\omega_n t} - 2\omega_n G_2e^{-\omega_n t} + G_2\omega_n^2 te^{-\omega_n t}
 \end{equation}
-
-Algunos ejemplos son:
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_criticamente_amortiguado_u0_1.0_v0_0.0.png}
-    \caption{Desplazamiento inicial 1.0, velocidad inicial 0.0}
-    \label{fig:ejemplo1}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_criticamente_amortiguado_u0_1.0_v0_1.0.png}
-    \caption{Desplazamiento inicial 1.0, velocidad inicial 1.0}
-    \label{fig:ejemplo1}
-\end{figure}
 
 \subsection{Subamortiguado}
 
@@ -557,60 +499,9 @@ Lo cual se puede simplificar como:
     \ddot{u}_h(t) = -\rho \omega_n^2 e^{-\beta \omega_n t} \cos(\omega_d t - \phi - 2\phi_1)
 \end{equation}
 
-Algunos ejemplos son:
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_subamortiguado_u0_1.0_v0_0.0_zeta_0.1.png}
-    \caption{Desplazamiento inicial 1.0, velocidad inicial 0.0}
-    \label{fig:ejemplo1}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{GRAFICOS/sis_subamortiguado_u0_1.0_v0_1.0_zeta_0.1.png}
-    \caption{Desplazamiento inicial 1.0, velocidad inicial 1.0}
-    \label{fig:ejemplo1}
-\end{figure}
-
 \section{Interpolacion a partir de mediciones}
 
-Si se generan mediciones de estudio, se puede generar una interpolacion a partir de estas, por ejemplo:
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{p{3.5cm} >{\centering\arraybackslash}p{2.5cm} >{\centering\arraybackslash}p{2.5cm}}
-        \toprule
-        \textbf{Amp (cm)} & \textbf{Tiempo (s)}  \\
-        \midrule
-        6.0  & 0.4\\
-        -4.66  & 1.0\\
-        3.62  & 1.6\\
-        -2.82  & 2.21\\
-        2.19  & 2.81\\
-        -1.7  & 3.41\\
-        1.32  & 4.01\\
-        -1.18  & 4.61\\
-        1.06  & 5.22\\
-        -0.92  & 5.82\\
-        0.79  & 6.42\\
-        -0.66  & 7.02\\
-        0.52  & 7.62\\
-        -0.36 & 8.23\\
-        \bottomrule
-    \end{tabular}
-    \caption{Medicion ejemplo.}
-    \label{tab:cargas_maximas}
-  \end{table}
-
-Luego es posible generar una interpolacion a partir de estas mediciones, por ejemplo:
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{GRAFICOS/ajuste_recta.png}
-    \caption{Interpolacion a partir de mediciones.}
-    \label{fig:ejemplo1}
-\end{figure}
+Si se generan mediciones de estudio, se puede generar una interpolacion a partir de estas. Luego es posible generar una interpolacion a partir de estas mediciones, por ejemplo:
 
 \textbf{OJO, la implitud debe ir en ln (abs ())}
 
@@ -728,15 +619,6 @@ Donde FAD de $\lambda$ corresponde a:
 \begin{equation}
     \text{FAD}(\lambda) = \frac{1}{1-\lambda^2}
 \end{equation}
-
-Lo cual se visualiza como:
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{GRAFICOS/FAD.png}
-    \caption{FAD segun $\lambda$}
-    \label{fig:ejemplo1}
-\end{figure}
 
 \section{Armortiguadores y resortes en linea}
 
